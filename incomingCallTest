@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>שיחה נכנסת - CARGO</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding-top: 100px;
+      direction: rtl;
+    }
+    .container {
+      background-color: #ffffff;
+      border: 2px solid #0078d4;
+      border-radius: 10px;
+      display: inline-block;
+      padding: 40px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-size: 36px;
+      color: #0078d4;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .message {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .phone-number {
+      font-size: 28px;
+      color: #333333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo">CARGO</div>
+    <div class="message">שיחה נכנסת ממספר:</div>
+    <div class="phone-number" id="phone">טוען...</div>
+  </div>
+
+  <script>
+    // פונקציה לחילוץ פרמטר מה-URL
+    function getPhoneFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get("phone");
+    }
+
+    // הצגת מספר הטלפון בדף
+    const phone = getPhoneFromURL();
+    const phoneElement = document.getElementById("phone");
+    if (phone) {
+      phoneElement.textContent = phone;
+    } else {
+      phoneElement.textContent = "לא התקבל מספר טלפון";
+    }
+  </script>
+</body>
+</html>
